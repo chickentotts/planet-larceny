@@ -1,0 +1,52 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://SpriteAnimation4.png" type="Texture" id=1]
+[ext_resource path="res://Player.gd" type="Script" id=2]
+[ext_resource path="res://SpriteAnimation6.png" type="Texture" id=3]
+[ext_resource path="res://SpriteAnimationLeft3.png" type="Texture" id=4]
+[ext_resource path="res://characterSprite1.png" type="Texture" id=5]
+[ext_resource path="res://SpriteAnimationLeft2.png" type="Texture" id=7]
+[ext_resource path="res://SpriteAnimationLeft6.png" type="Texture" id=8]
+[ext_resource path="res://SpriteAnimationLeft4.png" type="Texture" id=9]
+[ext_resource path="res://SpriteAnimationLeft5.png" type="Texture" id=10]
+[ext_resource path="res://SpriteAnimation2.png" type="Texture" id=11]
+[ext_resource path="res://SpriteAnimation5.png" type="Texture" id=12]
+[ext_resource path="res://SpriteAnimationLeft1.png" type="Texture" id=13]
+[ext_resource path="res://SpriteAnimation3.png" type="Texture" id=14]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4.5, 7.5 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 13 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "left",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "stop",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 14 ), ExtResource( 1 ), ExtResource( 12 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "run",
+"speed": 12.0
+} ]
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.5, 0.5 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+animation = "left"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 75, -53 )
+current = true
+zoom = Vector2( 0.8, 0.8 )

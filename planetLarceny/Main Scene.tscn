@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://LevelOne.tscn" type="PackedScene" id=2]
+
+[node name="Main Scene" type="Node2D"]
+
+[node name="LevelOne" parent="." instance=ExtResource( 2 )]
+
+[node name="Player" parent="LevelOne" instance=ExtResource( 1 )]
+position = Vector2( 24, 152 )
+
+[node name="Area2D" type="Area2D" parent="LevelOne"]
+
+[node name="Sprite" type="Sprite" parent="LevelOne/Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelOne/Area2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelOne/Area2D"]

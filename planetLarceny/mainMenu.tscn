@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://titleGraphic.png" type="Texture" id=1]
+[ext_resource path="res://mainMenu.gd" type="Script" id=2]
+
+[node name="mainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -68.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartButton" type="Button" parent="ColorRect/VBoxContainer"]
+margin_right = 320.0
+margin_bottom = 20.0
+text = "Start Game"
+
+[node name="OptionsButton" type="Button" parent="ColorRect/VBoxContainer"]
+margin_top = 24.0
+margin_right = 320.0
+margin_bottom = 44.0
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="ColorRect/VBoxContainer"]
+margin_top = 48.0
+margin_right = 320.0
+margin_bottom = 68.0
+text = "Quit"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.0
+margin_right = 20.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" type="Area2D" parent="ColorRect/VBoxContainer2"]
+
+[node name="Sprite" type="Sprite" parent="ColorRect/VBoxContainer2/Area2D"]
+position = Vector2( 20, 56 )
+texture = ExtResource( 1 )
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
